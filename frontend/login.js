@@ -8,24 +8,25 @@ form.addEventListener('submit', async (e) => {
     const password = document.getElementById('password').value;
 
     try {
-                const res = await fetch('http://localhost:3000/auth/login', {
+        const res = await fetch('/auth/login', {  // same origin
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
         });
 
         const data = await res.json();
-        if(res.ok){
-            message.textContent = `Logged in as ${data.role}`;
-            localStorage.setItem('token', data.token);
-            localStorage.setItem('role', data.role);
 
-            // Example role-based redirect
+        if(data.success){
+            // Save role and username
+            localStorage.setItem('role', data.role);
+            localStorage.setItem('username', data.username);
+
+            // Redirect by role
             if(data.role === 'admin') window.location.href = 'admin-dashboard.html';
             else if(data.role === 'teacher') window.location.href = 'teacher-dashboard.html';
             else window.location.href = 'student-portal.html';
         } else {
-            message.textContent = data; // show error message
+            message.textContent = data.message; // show error
         }
     } catch(err) {
         message.textContent = 'Error connecting to server';

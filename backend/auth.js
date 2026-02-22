@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const db = require('./db');
 
+// Login route
 router.post('/login', (req, res) => {
     const { username, password } = req.body;
 
@@ -11,11 +12,11 @@ router.post('/login', (req, res) => {
         if(results.length === 0) return res.json({ success: false, message: 'User not found' });
 
         const user = results[0];
-        const valid = await bcrypt.compare(password, user.password);
-        if(!valid) return res.json({ success: false, message: 'Incorrect password' });
+            const valid = await bcrypt.compare(password, user.Password); // <-- capital P
+            if(!valid) return res.json({ success: false, message: 'Incorrect password' });
 
         // Login success → return role
-        res.json({ success: true, role: user.role, username: user.username });
+        res.json({ success: true, role: user.Role, username: user.Username });
     });
 });
 
