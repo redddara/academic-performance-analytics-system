@@ -1,17 +1,40 @@
-<h2>Course Management</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
 
-<input type="text" id="courseName" placeholder="Enter course name">
-<button onclick="addCourse()">Add Course</button>
+    <h1>Admin Dashboard</h1>
+    <p id="welcome"></p>
+    <button onclick="logout()">Logout</button>
 
-<ul id="courseList"></ul>
+    <hr>
 
-<h2>Subject Management</h2>
+    <h2>📊 System Overview</h2>
+    <p>Total Courses: <span id="courseCount">0</span></p>
+    <p>Total Subjects: <span id="subjectCount">0</span></p>
 
-<select id="courseSelect"></select>
-<input type="text" id="subjectName" placeholder="Subject Name">
-<input type="number" id="semester" placeholder="Semester">
-<button onclick="addSubject()">Add Subject</button>
+    <hr>
 
-<ul id="subjectList"></ul>
+    <h2>📚 Course Management</h2>
 
-<script src="admin.js"></script>
+    <input type="text" id="courseName" placeholder="Enter course name">
+    <button onclick="addCourse()">Add Course</button>
+
+    <ul id="courseList"></ul>
+
+    <hr>
+
+    <h2>📘 Subject Management</h2>
+
+    <select id="courseSelect"></select>
+    <input type="text" id="subjectName" placeholder="Subject Name">
+    <input type="number" id="semester" placeholder="Semester">
+    <button onclick="addSubject()">Add Subject</button>
+
+    <ul id="subjectList"></ul>
+
+    <script src="admin.js"></script>
+</body>
+</html>
