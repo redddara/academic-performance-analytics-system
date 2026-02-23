@@ -2,28 +2,40 @@
 <html>
 <head>
     <title>Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="admin.css">
 </head>
 <body>
 
 <div class="container">
 
-    <!-- Sidebar -->
     <div class="sidebar">
-        <h2>APAS Admin</h2>
+        <h2>APAS</h2>
         <a href="#">Dashboard</a>
         <a href="#">Courses</a>
         <a href="#">Subjects</a>
+        <a href="#">Students</a>
+        <a href="#">Teachers</a>
         <a href="#" onclick="logout()">Logout</a>
     </div>
 
-    <!-- Main Content -->
     <div class="main">
+
+                <div class="top-bar">
+                    <div class="theme-toggle">
+                        <span>☀️</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeSwitch" onchange="toggleTheme()">
+                            <span class="slider"></span>
+                        </label>
+                        <span>🌙</span>
+                    </div>
+                </div>
 
         <h1>Admin Dashboard</h1>
         <p id="welcome"></p>
 
-        <!-- Stats -->
+        <!-- Overview Stats -->
         <div class="stats">
             <div class="stat-box">
                 <h3 id="courseCount">0</h3>
@@ -33,28 +45,35 @@
                 <h3 id="subjectCount">0</h3>
                 <p>Subjects</p>
             </div>
+            <div class="stat-box">
+                <h3 id="studentCount">0</h3>
+                <p>Students</p>
+            </div>
+            <div class="stat-box">
+                <h3 id="teacherCount">0</h3>
+                <p>Teachers</p>
+            </div>
         </div>
 
-        <!-- Course Card -->
+        <!-- Course Management -->
         <div class="card">
             <h2>Course Management</h2>
-            <input type="text" id="courseName" placeholder="Enter course name">
-            <button onclick="addCourse()">Add Course</button>
+            <input type="text" id="courseName" placeholder="Course name">
+            <button onclick="addCourse()">Add</button>
             <ul id="courseList"></ul>
         </div>
 
-        <!-- Subject Card -->
+        <!-- Subject Management -->
         <div class="card">
             <h2>Subject Management</h2>
             <select id="courseSelect"></select>
-            <input type="text" id="subjectName" placeholder="Subject Name">
+            <input type="text" id="subjectName" placeholder="Subject name">
             <input type="number" id="semester" placeholder="Semester">
-            <button onclick="addSubject()">Add Subject</button>
+            <button onclick="addSubject()">Add</button>
             <ul id="subjectList"></ul>
         </div>
 
     </div>
-
 </div>
 
 <script src="admin.js"></script>
