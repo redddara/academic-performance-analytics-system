@@ -150,6 +150,39 @@ async function deleteSubject(id) {
     loadSubjects();
 }
 
+// ===== THEME TOGGLE =====
+
+function toggleTheme() {
+    const body = document.body;
+    const switchEl = document.getElementById('themeSwitch');
+
+    body.classList.toggle('dark');
+
+    if (body.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+        switchEl.checked = true;
+    } else {
+        localStorage.setItem('theme', 'light');
+        switchEl.checked = false;
+    }
+}
+
+// Load saved theme
+window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    const switchEl = document.getElementById('themeSwitch');
+
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark');
+        switchEl.checked = true;
+    }
+});
+
+// Load saved theme
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark');
+}
+
 // ==============================
 // INITIAL LOAD
 // ==============================
