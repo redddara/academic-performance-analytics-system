@@ -1,22 +1,25 @@
 /* ===== THEME VARIABLES ===== */
 :root {
-    --bg: #f4f6f9;
-    --card: #ffffff;
-    --text: #111827;
-    --primary: #2563eb;
-    --sidebar: #1f2937;
-    --sidebar-hover: #374151;
-    --danger: #dc2626;
+    --bg: #F5F5F5;
+    --card: #FFFFFF;
+    --text: #2B2B2B;
+    --primary: #7A0C1E;        /* School Maroon */
+    --primary-dark: #5A0916;
+    --accent: #A3162A;
+    --sidebar: #7A0C1E;
+    --sidebar-hover: #5A0916;
+    --danger: #A3162A;
 }
 
 body.dark {
-    --bg: #111827;
-    --card: #1f2937;
-    --text: #f9fafb;
-    --primary: #3b82f6;
-    --sidebar: #0f172a;
-    --sidebar-hover: #1e293b;
-    --danger: #ef4444;
+    --bg: #1A1A1A;
+    --card: #262626;
+    --text: #F5F5F5;
+    --primary: #A3162A;
+    --primary-dark: #7A0C1E;
+    --sidebar: #111111;
+    --sidebar-hover: #2A2A2A;
+    --danger: #C53030;
 }
 
 /* ===== GLOBAL ===== */
@@ -38,21 +41,23 @@ body {
     width: 230px;
     background: var(--sidebar);
     color: white;
-    padding: 20px;
-    transition: 0.3s ease;
+    padding: 25px 20px;
 }
 
 .sidebar h2 {
+    font-weight: bold;
+    letter-spacing: 1px;
     margin-bottom: 30px;
 }
 
 .sidebar a {
     display: block;
-    color: white;
-    text-decoration: none;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
     transition: 0.2s ease;
 }
 
@@ -75,18 +80,18 @@ body {
 }
 
 .stat-box {
-    background: var(--primary);
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: white;
     padding: 20px;
     border-radius: 12px;
     text-align: center;
     transition: transform 0.3s ease;
+    box-shadow: 0 6px 15px rgba(122, 12, 30, 0.2);
 }
 
 .stat-box:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
 }
-
 /* ===== CARDS ===== */
 .card {
     background: var(--card);
